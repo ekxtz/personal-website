@@ -1,6 +1,6 @@
 name: 'Deploy to Cloud Run from Source (WIF)'
 
-# 1. Trigs the workflow on push to the 'main' branch or manual dispatch
+# 1. Triggers the workflow on push to the 'main' branch or manual dispatch
 on:
   push:
     branches:
@@ -32,8 +32,27 @@ jobs:
       - name: 'Checkout'
         uses: 'actions/checkout@v4'
 
+      # -----------------------------------------------------------------
+      # CONTINUOUS INTEGRATION (CI) STEPS
+      # If these steps fail (e.g., tests fail), the workflow STOPS here.
+      # -----------------------------------------------------------------
+      - name: 'Set up Node.js for Testing'
+        uses: 'actions/setup-node@v4'
+        with:
+          node-version: '20'
+
+      - name: 'Install Project Dependencies'
+        run: npm install
+
+      - name: 'Run Tests & Linting'
+        run: npm run test
+        
+      # -----------------------------------------------------------------
+      # CONTINUOUS DEPLOYMENT (CD) STEPS
+      # These only run if the CI steps (above) succeed.
+      # -----------------------------------------------------------------
+
       # 3a. Authenticate to Google Cloud using Workload Identity Federation
-      # This step uses the WIF_PROVIDER and Service Account to get a GCP access token.
       - id: 'auth'
         name: 'Authenticate to Google Cloud (via WIF)'
         uses: 'google-github-actions/auth@v2'
