@@ -38,7 +38,7 @@ jobs:
         uses: 'google-github-actions/auth@v2'
         with:
           # This pulls the JSON key from the GitHub Secret named GCP_CREDENTIALS
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       # Deploy to Cloud Run (automatically builds and deploys from source)
       - name: 'Deploy to Cloud Run'
