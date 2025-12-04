@@ -18,3 +18,4 @@ The overall goal of this task is to establish a secure, automated pipeline that 
 Due to this proj   i understood how to do a different things like creating a pages and use load balancer . With ai and youtube . But i have a lot of question about 
 yaml file the parametres and syntaxis  - i need more time for understanding  this process . I hope in future i will understand it . I have a lot of plans to watch ADVIT VIDEO 
 WITH CI CD ON GITHUB ACTIONS AND JENKINS.
+ i understood about WIF . THIS IS NOT RIGHT WAY FOR THIS TASK BUT I TRIED TO USE KEYS TOO . I HAD AN ERROR  .BECAUSE THE LACK OF KNOWLIDGE 
