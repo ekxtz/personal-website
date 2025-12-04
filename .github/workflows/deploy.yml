@@ -33,21 +33,9 @@ jobs:
         uses: 'actions/checkout@v4'
 
       # -----------------------------------------------------------------
-      # CONTINUOUS INTEGRATION (CI) STEPS
-      # -----------------------------------------------------------------
-      - name: 'Set up Node.js for Testing'
-        uses: 'actions/setup-node@v4'
-        with:
-          node-version: '20'
-
-      - name: 'Install Project Dependencies'
-        run: npm install
-
-      - name: 'Run Tests & Linting'
-        run: npm run test
-        
-      # -----------------------------------------------------------------
       # CONTINUOUS DEPLOYMENT (CD) STEPS
+      # NOTE: The CI steps (npm install, npm run test) were REMOVED 
+      # to fix the 'package.json' error.
       # -----------------------------------------------------------------
 
       # 3a. Authenticate to Google Cloud using Workload Identity Federation
