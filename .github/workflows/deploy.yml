@@ -67,6 +67,7 @@ jobs:
           region: ${{ env.REGION }}
           source: './'
 
-      # 3c. Output the final URL
+      # 3c. Output the final URL (Using | for stable parsing)
       - name: 'Show output'
-        run: echo "Cloud Run Service URL: ${{ steps.deploy.outputs.url }}"
+        run: |
+          echo "Cloud Run Service URL: ${{ steps.deploy.outputs.url }}"
